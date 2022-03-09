@@ -1,6 +1,8 @@
+#include <dos.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 const int SQUARE_SIZE = 3;
 
@@ -92,11 +94,34 @@ void generateLoShu()
 }
 
 int main()
-{
-    int square[3][3] = {{1, 1, 1}, 
-                        {1, 1, 1}, 
-                        {1, 1, 1}};
-    //printf("%d\n", isLoShu(square));
+{    
+    printf("Test #1 - Checking the isLoShu() method.\n");
+
+    int squareA[3][3] = {{4, 9, 2}, 
+                         {3, 5, 7}, 
+                         {8, 1, 6}};
+    printf("Is Square A a Lo Shu Square?\n");
+    printSquare(squareA);
+    if(isLoShu(squareA))
+        printf("Yes, Square A is a Lo Shu Square.\n");
+    else
+        printf("No, Square A is not a Lo Shu Square.\n");
+
+    int squareB[3][3] = {{1, 1, 1}, 
+                         {1, 1, 1}, 
+                         {1, 1, 1}};
+    printf("Is Square B a Lo Shu Square?\n");
+    printSquare(squareB);
+    if(isLoShu(squareB))
+        printf("Yes, Square B is a Lo Shu Square.\n");
+    else
+        printf("No, Square B is not a Lo Shu Square.\n");
+
+    printf("\n\nTest #2 - Checking the generateLoShu() method.\n");
+    printf("Execution #1\n");
+    generateLoShu();
+    sleep(1);
+    printf("Execution #2\n");
     generateLoShu();
     return 0;
 }
